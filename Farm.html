@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Krushi Gujarat | My Farm
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+
+<body onload="checkLogin()">
+
+
+
+
+
+<!-- ================= NAVBAR ================= -->
+
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+🌱 Krushi Gujarat
+
+</div>
+
+
+
+
+<div class="nav-links">
+
+
+<a href="dashboard.html">
+
+Dashboard
+
+</a>
+
+
+
+<a href="index.html">
+
+Home
+
+</a>
+
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+<!-- ================= FARM ANALYSIS ================= -->
+
+
+
+<section class="farm-section">
+
+
+
+
+
+<div class="farm-container">
+
+
+
+
+
+<h2>
+
+🚜 My Farm Analysis
+
+</h2>
+
+
+
+<p style="text-align:center;">
+
+Enter your farm details to get smart recommendations
+
+</p>
+
+
+
+
+
+
+
+
+
+<form onsubmit="event.preventDefault(); analyzeSoil();">
+
+
+
+
+
+
+<div class="farm-form">
+
+
+
+
+
+<!-- DISTRICT -->
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Select District
+
+</label>
+
+
+
+<select id="signupDistrict" required>
+
+<option value="">
+Select Gujarat District
+</option>
+
+<option>Ahmedabad</option>
+<option>Amreli</option>
+<option>Anand</option>
+<option>Aravalli</option>
+<option>Banaskantha</option>
+<option>Bharuch</option>
+<option>Bhavnagar</option>
+<option>Botad</option>
+<option>Chhota Udaipur</option>
+<option>Dahod</option>
+<option>Dang</option>
+<option>Devbhumi Dwarka</option>
+<option>Gandhinagar</option>
+<option>Gir Somnath</option>
+<option>Jamnagar</option>
+<option>Junagadh</option>
+<option>Kheda</option>
+<option>Kutch</option>
+<option>Mahisagar</option>
+<option>Mehsana</option>
+<option>Morbi</option>
+<option>Narmada</option>
+<option>Navsari</option>
+<option>Panchmahal</option>
+<option>Patan</option>
+<option>Porbandar</option>
+<option>Rajkot</option>
+<option>Sabarkantha</option>
+<option>Surat</option>
+<option>Surendranagar</option>
+<option>Tapi</option>
+<option>Vadodara</option>
+<option>Valsad</option>
+
+</select>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SOIL TYPE -->
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Soil Type
+
+</label>
+
+
+
+<select id="soilType"
+required>
+
+
+<option value="">
+
+Select Soil
+
+</option>
+
+
+
+<option>
+Black Soil
+</option>
+
+
+
+<option>
+Alluvial Soil
+</option>
+
+
+
+<option>
+Sandy Soil
+</option>
+
+
+
+<option>
+Red Soil
+</option>
+
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SOIL PH -->
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Soil pH Level
+
+</label>
+
+
+
+<input
+
+type="number"
+
+step="0.1"
+
+id="soilPH"
+
+placeholder="Example 6.5"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- FARM AREA -->
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Farm Area (Acre)
+
+</label>
+
+
+
+<input
+
+type="number"
+
+id="farmArea"
+
+placeholder="Enter Acre"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<button class="analyze-btn">
+
+
+🧪 Analyze My Farm
+
+
+</button>
+
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</section>
+<!-- ================= ANALYSIS RESULT ================= -->
+
+
+<section class="farm-section">
+
+
+
+<div class="farm-container">
+
+
+
+<h2>
+
+🧪 Farm Analysis Result
+
+</h2>
+
+
+
+
+
+<div class="result-container">
+
+
+
+<div class="result-card" id="soilResult">
+
+
+<p>
+
+Your soil analysis result will appear here.
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= SMART CROP ADVISOR ================= -->
+
+
+
+<section class="farm-section">
+
+
+
+<div class="farm-container">
+
+
+
+<h2>
+
+🤖 Smart Crop Advisor
+
+</h2>
+
+
+
+
+
+<div class="result-card" id="cropAdvisor">
+
+
+<p>
+
+Analyze your farm first to get crop suggestions.
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= PROFIT CALCULATOR ================= -->
+
+
+
+<section class="farm-section">
+
+
+
+<div class="farm-container profit-box">
+
+
+
+
+
+<h2>
+
+💰 Crop Profit Calculator
+
+</h2>
+
+
+
+
+
+
+
+<div class="farm-form">
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Select Crop
+
+</label>
+
+
+
+<select id="profitCrop">
+
+
+<option value="">
+
+Choose Crop
+
+</option>
+
+
+
+<option>
+
+Groundnut
+
+</option>
+
+
+
+<option>
+
+Cotton
+
+</option>
+
+
+
+<option>
+
+Wheat
+
+</option>
+
+
+
+<option>
+
+Cumin
+
+</option>
+
+
+
+<option>
+
+Rice
+
+</option>
+
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Farm Area (Acre)
+
+</label>
+
+
+
+<input
+
+type="number"
+
+id="farmArea"
+
+placeholder="Enter Acre"
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<button 
+
+class="analyze-btn"
+
+onclick="calculateProfit()">
+
+
+💰 Calculate Profit
+
+
+</button>
+
+
+
+
+
+
+
+<div class="result-card" id="profitResult">
+
+
+<p>
+
+Profit calculation will appear here.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+<!-- ================= FARM REPORT ================= -->
+
+
+<section class="farm-section">
+
+
+
+<div class="farm-container">
+
+
+
+
+
+<h2>
+
+📄 Farm Report
+
+</h2>
+
+
+
+
+
+
+<p>
+
+Generate your complete smart farming report.
+
+</p>
+
+
+
+
+
+
+<button 
+
+class="analyze-btn"
+
+onclick="generateFarmReport()">
+
+
+📥 Download Farm Report
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= FARMING TIPS ================= -->
+
+
+<section class="about-section">
+
+
+
+<div class="feature-grid">
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+
+💧 Water Management
+
+</h3>
+
+
+<p>
+
+Use drip irrigation to save water
+and improve crop growth.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+
+🧪 Soil Care
+
+</h3>
+
+
+<p>
+
+Regular soil testing helps
+maintain soil quality.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+
+🌱 Smart Farming
+
+</h3>
+
+
+<p>
+
+Choose crops according to
+soil and climate conditions.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+
+<footer class="main-footer">
+
+
+<h2>
+
+🌱 Krushi Gujarat
+
+</h2>
+
+
+
+<p>
+
+Smart Agriculture Platform For Gujarat Farmers
+
+</p>
+
+
+
+<div class="footer-links">
+
+
+<a href="index.html">
+
+Home
+
+</a>
+
+
+
+<a href="dashboard.html">
+
+Dashboard
+
+</a>
+
+
+
+<a href="login.html">
+
+Login
+
+</a>
+
+
+
+</div>
+
+
+
+
+<p class="copyright">
+
+© 2026 Krushi Gujarat | Smart Farming System
+
+</p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Krushi Gujarat | Smart Dashboard
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+<body onload="checkLogin();">
+
+
+
+
+
+<div class="dashboard-container">
+
+
+
+
+
+<!-- ================= SIDEBAR ================= -->
+
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+🌱 Krushi Gujarat
+
+</div>
+
+
+
+
+<a href="dashboard.html">
+📊 Dashboard
+</a>
+
+
+
+<a href="farm.html">
+🚜 My Farm
+</a>
+
+
+
+<a href="#">
+🌦 Weather
+</a>
+
+
+
+<a href="#">
+📈 Market Price
+</a>
+
+
+
+<a href="index.html">
+🏠 Home
+</a>
+
+
+
+
+<a onclick="logoutUser()">
+🚪 Logout
+</a>
+
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- ================= MAIN ================= -->
+
+
+<main class="dashboard-main">
+
+
+
+
+
+<div class="dashboard-header">
+
+
+
+<div>
+
+
+<h1 id="dashboardName">
+
+Welcome Farmer 🌱
+
+</h1>
+
+
+<p>
+
+Smart Farming Dashboard
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="profile-box">
+
+
+👨‍🌾 Farmer Profile
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ================= DASHBOARD CARDS ================= -->
+
+
+
+<div class="dashboard-grid">
+
+
+
+
+
+<div class="dashboard-card soil-score">
+
+
+
+<h3>
+
+🧪 Soil Health
+
+</h3>
+
+
+
+<h1 id="soilScore">
+
+0%
+
+</h1>
+
+
+
+<div class="progress-bar">
+
+
+<div class="progress-fill" style="width:0%;">
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="dashboard-card">
+
+
+
+<h3>
+
+🌱 Recommended Crop
+
+</h3>
+
+
+<h2 id="recommendedCrop">
+
+-
+
+</h2>
+
+
+
+<p>
+
+Based on soil analysis
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="dashboard-card">
+
+
+
+<h3>
+
+🚜 Farm Status
+
+</h3>
+
+
+
+<h2 id="farmHealth">
+
+Pending
+
+</h2>
+
+
+
+<p>
+
+Overall farm condition
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+<!-- ================= SOIL ANALYSIS DETAIL ================= -->
+
+
+<div class="dashboard-grid" style="margin-top:30px;">
+
+
+
+
+
+<div class="dashboard-card">
+
+
+
+<h3>
+
+🧪 Soil Analysis Report
+
+</h3>
+
+
+
+
+<div id="soilResult">
+
+
+<p>
+
+No analysis available.
+
+</p>
+
+
+
+<p>
+
+Go to My Farm and analyze your soil.
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ================= CROP ADVISOR ================= -->
+
+
+
+<div class="dashboard-card crop-advisor">
+
+
+
+<h3>
+
+🤖 Smart Crop Advisor
+
+</h3>
+
+
+
+
+<div id="cropAdvisor">
+
+
+<p>
+
+Complete soil analysis to get recommendation.
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ================= WEATHER + MARKET ================= -->
+
+
+
+<div class="dashboard-grid" style="margin-top:30px;">
+
+
+
+
+
+<!-- WEATHER -->
+
+
+
+<div class="dashboard-card weather-card">
+
+
+
+<h3>
+
+🌦 Weather Information
+
+</h3>
+
+
+
+
+<select id="weatherDistrict"
+onchange="showWeather()">
+
+
+<option value="">
+
+Select District
+
+</option>
+
+
+<option>
+Junagadh
+</option>
+
+
+<option>
+Rajkot
+</option>
+
+
+<option>
+Ahmedabad
+</option>
+
+
+<option>
+Surat
+</option>
+
+
+<option>
+Kutch
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+<div id="weatherResult">
+
+
+<p>
+
+Select district to view weather
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- MARKET -->
+
+
+
+<div class="dashboard-card market-card">
+
+
+
+<h3>
+
+📈 Live Market Price
+
+</h3>
+
+
+
+
+
+
+<select id="marketCrop"
+onchange="showMarketPrice()">
+
+
+
+<option value="">
+
+Select Crop
+
+</option>
+
+
+
+<option>
+Groundnut
+</option>
+
+
+
+<option>
+Cotton
+</option>
+
+
+
+<option>
+Wheat
+</option>
+
+
+
+<option>
+Cumin
+</option>
+
+
+
+<option>
+Rice
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+<div id="marketResult">
+
+
+<p>
+
+Select crop to view price
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+<!-- ================= FARM ALERTS ================= -->
+
+
+<div class="dashboard-grid" style="margin-top:30px;">
+
+
+
+
+
+<div class="dashboard-card alert-box">
+
+
+
+<h3>
+
+🚨 Farming Alerts
+
+</h3>
+
+
+
+
+
+<div id="farmAlerts">
+
+
+<p>
+
+Loading alerts...
+
+</p>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+
+
+<div class="dashboard-card">
+
+
+
+<h3>
+
+⚡ Quick Actions
+
+</h3>
+
+
+
+
+<a href="farm.html"
+class="primary-btn"
+style="display:block;text-align:center;margin:15px 0;">
+
+
+🧪 Analyze My Farm
+
+
+</a>
+
+
+
+
+
+
+
+<button 
+
+onclick="generateFarmReport()"
+
+class="analyze-btn">
+
+
+📄 Download Farm Report
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ================= FARMING TIPS ================= -->
+
+
+
+<div class="dashboard-card">
+
+
+
+<h3>
+
+🌱 Today's Farming Tip
+
+</h3>
+
+
+
+
+<p>
+
+💧 Use drip irrigation to save water.
+
+</p>
+
+
+
+<p>
+
+🌾 Check soil moisture before irrigation.
+
+</p>
+
+
+
+<p>
+
+🧪 Regular soil testing improves crop yield.
+
+</p>
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+
+<footer class="main-footer">
+
+
+<h2>
+
+🌱 Krushi Gujarat
+
+</h2>
+
+
+
+<p>
+
+Smart Agriculture Dashboard For Gujarat Farmers
+
+</p>
+
+
+
+<p>
+
+© 2026 Krushi Gujarat
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+
+</html>
+
+

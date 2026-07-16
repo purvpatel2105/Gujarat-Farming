@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Krushi Gujarat | Farmer Login
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+
+<div class="background-overlay"></div>
+
+
+
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+
+<div class="logo">
+
+🌱 Krushi Gujarat
+
+</div>
+
+
+
+<div class="nav-links">
+
+
+<a href="index.html">
+Home
+</a>
+
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+
+</div>
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+<!-- LOGIN SECTION -->
+
+
+<section class="farm-section">
+
+
+
+<div class="farm-container login-container">
+
+
+
+<h2>
+
+👨‍🌾 Farmer Login
+
+</h2>
+
+
+
+
+<p class="login-text">
+
+Access your smart farming dashboard
+
+</p>
+
+
+
+
+
+
+
+
+
+<!-- LOGIN FORM -->
+
+
+<form onsubmit="event.preventDefault(); loginUser();">
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Email
+
+</label>
+
+
+
+<input 
+type="email"
+id="loginEmail"
+placeholder="Enter Email"
+required
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+
+Password
+
+</label>
+
+
+
+<input 
+
+type="password"
+
+id="loginPassword"
+
+placeholder="Enter Password"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+<button class="analyze-btn">
+
+
+Login 🌱
+
+
+</button>
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+<div class="login-divider">
+
+
+OR
+
+
+</div>
+
+
+
+
+
+
+
+<button 
+class="secondary-btn signup-open"
+onclick="showSignup()"
+>
+
+
+Create New Farmer Account
+
+
+</button>
+
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- SIGNUP PART 2 BELOW -->
+
+
+<!-- ================= SIGNUP SECTION ================= -->
+
+
+<section class="farm-section signup-section" id="signupBox" style="display:none;">
+
+
+
+<div class="farm-container">
+
+
+
+<h2>
+
+🌱 New Farmer Registration
+
+</h2>
+
+
+
+
+<p class="login-text">
+
+Create your Krushi Gujarat farming profile
+
+</p>
+
+
+
+
+
+
+
+
+<form onsubmit="event.preventDefault(); signupUser();">
+
+
+
+
+
+<div class="farm-form">
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Full Name
+</label>
+
+
+<input
+
+type="text"
+
+id="signupName"
+
+placeholder="Enter Name"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Phone Number
+</label>
+
+
+<input
+
+type="tel"
+
+id="signupPhone"
+
+placeholder="Enter Phone Number"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Email
+</label>
+
+
+<input
+
+type="email"
+
+id="signupEmail"
+
+placeholder="Enter Email"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Age
+</label>
+
+
+<input
+
+type="number"
+
+id="signupAge"
+
+placeholder="Enter Age"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Gujarat District
+</label>
+
+
+
+<select id="signupDistrict" required>
+
+<option value="">
+Select Gujarat District
+</option>
+
+<option>Ahmedabad</option>
+<option>Amreli</option>
+<option>Anand</option>
+<option>Aravalli</option>
+<option>Banaskantha</option>
+<option>Bharuch</option>
+<option>Bhavnagar</option>
+<option>Botad</option>
+<option>Chhota Udaipur</option>
+<option>Dahod</option>
+<option>Dang</option>
+<option>Devbhumi Dwarka</option>
+<option>Gandhinagar</option>
+<option>Gir Somnath</option>
+<option>Jamnagar</option>
+<option>Junagadh</option>
+<option>Kheda</option>
+<option>Kutch</option>
+<option>Mahisagar</option>
+<option>Mehsana</option>
+<option>Morbi</option>
+<option>Narmada</option>
+<option>Navsari</option>
+<option>Panchmahal</option>
+<option>Patan</option>
+<option>Porbandar</option>
+<option>Rajkot</option>
+<option>Sabarkantha</option>
+<option>Surat</option>
+<option>Surendranagar</option>
+<option>Tapi</option>
+<option>Vadodara</option>
+<option>Valsad</option>
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Password
+</label>
+
+
+<input
+
+type="password"
+
+id="signupPassword"
+
+placeholder="Create Password"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="farm-input">
+
+
+<label>
+Confirm Password
+</label>
+
+
+<input
+
+type="password"
+
+id="confirmPassword"
+
+placeholder="Confirm Password"
+
+required
+
+>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<button class="analyze-btn">
+
+
+Create Account 🌾
+
+
+</button>
+
+
+
+
+
+
+</form>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ================= FARMER BENEFITS ================= -->
+
+
+
+<section class="about-section">
+
+
+
+<div class="feature-grid">
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+🧪 Soil Analysis
+</h3>
+
+
+<p>
+
+Understand soil health and crop suitability.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+🌱 Smart Crops
+</h3>
+
+
+<p>
+
+Get better crop recommendations.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="feature-card">
+
+
+<h3>
+📊 Farm Dashboard
+</h3>
+
+
+<p>
+
+Manage your farm digitally.
+
+</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function showSignup(){
+
+
+document.getElementById("signupBox").style.display="block";
+
+
+window.scrollTo({
+
+top:
+
+document.getElementById("signupBox").offsetTop,
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+
+
+</body>
+
+</html>
