@@ -1,4 +1,4 @@
-# 🌱 Krushi Gujarat - Smart Farming System
+# 🌱 Krushi Gujarat - Smart Farming System   https://purvpatel2105.github.io/Gujarat-Farming/
 
 ## 🚜 Smart Agriculture Platform for Gujarat Farmers
 
